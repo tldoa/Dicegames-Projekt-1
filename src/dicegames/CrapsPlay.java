@@ -11,7 +11,7 @@ public class CrapsPlay {
 	private Scanner scan;
 	private int firstRoll;
 
-	// Constructor for the CrapsPlay game, that creates 2 dices
+    // Constructor for the CrapsPlay game, that creates 2 dices
 	public CrapsPlay() {
 		this.die1 = new Die();
 		this.die2 = new Die();

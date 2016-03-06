@@ -12,7 +12,7 @@ public class PairOfDicesTheGame {
 	}
 
 	private void gameOver() {
-		System.out.println("Tak for spillet du fik " + theseDice.getPairs() + " par." + "\nDit højeste kast var "
+		System.out.println("Tak for spillet, du rullede " + theseDice.getNumberOfRolls() + "\ndu fik " + theseDice.getPairs() + " par." + "\nDit højeste kast var "
 				+ theseDice.getBiggestRoll() + ".\nDu kastede " + theseDice.getRolls()[5] + " Seksere"
 				+ ".\nDu kastede " + theseDice.getRolls()[4] + " Femmere" + ".\nDu kastede "
 				+ theseDice.getRolls()[3] + " Fire'ere" + ".\nDu kastede " + theseDice.getRolls()[2]
@@ -35,7 +35,7 @@ public class PairOfDicesTheGame {
 				theseDice.rollBothDices();
 				System.out.println("Terning 1 rullede: " + theseDice.getResult1Die1());
 				System.out.println("Terning 2 rullede: " + theseDice.getResult2Die2());
-				System.out.println("Den samlede sum for dit kast blev: " + theseDice.getsumOfDices());
+				System.out.println("Den samlede sum for dit kast blev: " + theseDice.getSumOfDices());
 			}
 		}
 		gameOver();
