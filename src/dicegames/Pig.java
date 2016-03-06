@@ -18,7 +18,7 @@ public class Pig {
 		this.scoreP2 = 0;
 		this.gameState = 3;
 		this.tempScore = 0;
-		scan = new Scanner(System.in);
+		this.scan = new Scanner(System.in);
 		this.winScore = winScore;
 	}
 

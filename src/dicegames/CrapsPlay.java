@@ -6,6 +6,7 @@ public class CrapsPlay {
 	// Instance variables for the game CrapsPlay
 	private Die die1;
 	private Die die2;
+	// 0 = continue, 1=win, 2 = lose, 3 = give up;
 	private int state;
 	private Scanner scan;
 	private int firstRoll;
@@ -16,7 +17,7 @@ public class CrapsPlay {
 		this.die2 = new Die();
 		this.state = 0;
 		this.firstRoll = 0;
-		scan = new Scanner(System.in);
+		this.scan = new Scanner(System.in);
 	}
 
 	// Game greeting
@@ -37,32 +38,34 @@ public class CrapsPlay {
 		}
 		scan.close();
 	}
-	// A method that rolls the both dice and determines whether your roll is
+	// A method that rolls both die and determines whether your roll is
 	// your first roll
-	// and the sets the conditions for winning and loosing
+	// and then sets the conditions for winning and loosing
 
 	public void takeTurn() {
 		this.die1.roll();
 		this.die2.roll();
-		int actualRoll = die1.getFaceValue() + die2.getFaceValue();
+		int actualRoll = this.die1.getFaceValue() + this.die2.getFaceValue();
 
 		System.out.println("Du slog: " + actualRoll);
 
-		if (firstRoll == 0) {
+		if (this.firstRoll == 0) {
 			if (actualRoll == 7 || actualRoll == 11) {
-				state = 1;
+				this.state = 1;
 			} else if (actualRoll == 2 || actualRoll == 3 || actualRoll == 12) {
-				state = 2;
+				this.state = 2;
 			} else {
-				firstRoll = actualRoll;
+				this.firstRoll = actualRoll;
 			}
 
 		} else {
 			if (actualRoll == 7) {
-				state = 2;
+				this.state = 2;
 			} else if (actualRoll == firstRoll) {
-				state = 1;
-			}
+				this.state = 1;
+			} else {
+                this.state = 0;
+            }
 		}
 	}
 
@@ -72,27 +75,30 @@ public class CrapsPlay {
 	public void startGame() {
 		sayHello();
 		while (state == 0) {
+
 			while (state == 0) {
+
 				System.out.println("Vil du kaste terningerne? Angiv Ja eller Nej: ");
 				String proceedWithGame = scan.nextLine();
 				if (proceedWithGame.equalsIgnoreCase("nej")) {
-					state = 3;
+					this.state = 3;
 				} else {
 					takeTurn();
-
 				}
-			}
 
+			}
 			gameOver();
+
 			System.out.println("Vil du spille igen? ");
 			String proceedWithGame = scan.nextLine();
-			if (proceedWithGame.equalsIgnoreCase("ja")) {
-				state = 0;
-				firstRoll = 0;
+
+            if (proceedWithGame.equalsIgnoreCase("ja")) {
+				this.state = 0;
+				this.firstRoll = 0;
 			} else {
 				System.out.println("Taber");
-
 			}
+
 		}
 	}
 

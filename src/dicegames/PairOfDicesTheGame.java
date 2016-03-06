@@ -6,20 +6,18 @@ public class PairOfDicesTheGame {
 	private Scanner scan;
 	private PairOfDices theseDice;
 
-	// TODO Auto-generated method stub
 	public PairOfDicesTheGame() {
 		theseDice = new PairOfDices(6);
 		scan = new Scanner(System.in);
 	}
-	// Scanner scan = new Scanner(System.in);
 
 	private void gameOver() {
 		System.out.println("Tak for spillet du fik " + theseDice.getPairs() + " par." + "\nDit højeste kast var "
-				+ theseDice.getBiggestRoll() + ".\nDu kastede " + theseDice.getNumberOfSixes() + " Seksere"
-				+ ".\nDu kastede " + theseDice.getNumberOfFives() + " Femmere" + ".\nDu kastede "
-				+ theseDice.getNumberOfFour() + " Fire'ere" + ".\nDu kastede " + theseDice.getNumberOfThree()
-				+ " Tre'ere" + ".\nDu kastede " + theseDice.getNumberOfTwo() + " To'ere" + ".\nDu kastede "
-				+ theseDice.getNumberOfOne() + " Et'ere");
+				+ theseDice.getBiggestRoll() + ".\nDu kastede " + theseDice.getRolls()[5] + " Seksere"
+				+ ".\nDu kastede " + theseDice.getRolls()[4] + " Femmere" + ".\nDu kastede "
+				+ theseDice.getRolls()[3] + " Fire'ere" + ".\nDu kastede " + theseDice.getRolls()[2]
+				+ " Tre'ere" + ".\nDu kastede " + theseDice.getRolls()[1] + " To'ere" + ".\nDu kastede "
+				+ theseDice.getRolls()[0] + " Et'ere");
 		scan.close();
 	}
 
